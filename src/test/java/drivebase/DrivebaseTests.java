@@ -56,8 +56,28 @@ class DrivebaseTests {
 
     @Test 
     public void testArcadeDrive_withThrottle1Point01Rotate0_expectIllegalArgumentException() {
-        double throttle = -.01;
+        double throttle = 1.01;
         double rotate = 0;
+
+        // Here we call a hardware method called replayHardware()
+        // This causes EasyMock to run all of the stuff we just recorded
+        _hardware.replayHardware();
+
+        // Here is where we call the method under test
+        // If we are expecting an exception, it is ok to have an assertion here
+        assertThrows(IllegalArgumentException.class, 
+            () -> _drivebase.arcadeDrive(throttle, rotate));
+
+        // Here is where we make assertions about behavior and call verifyHardware()
+        // In this test, we expect exceptions, so we only have the one assertion above
+        // So we will only call verifyHardware() here
+        _hardware.verifyHardware();
+    }
+
+    @Test 
+    public void testArcadeDrive_withThrottle0RotateNeg1Point01_expectIllegalArgumentException() {
+        double throttle = 0;
+        double rotate = -1.01;
 
         // Here we call a hardware method called replayHardware()
         // This causes EasyMock to run all of the stuff we just recorded
