@@ -17,7 +17,7 @@ public class Drivebase extends SubsystemBase {
             throw new IllegalArgumentException("Rotate must be between -1 and 1");
         }
 
-        _hardware.getLeftPrimaryMotor().set(0);
+        _hardware.getLeftPrimaryMotor().set(-1);
         _hardware.getRightPrimaryMotor().set(0);
     }
 }

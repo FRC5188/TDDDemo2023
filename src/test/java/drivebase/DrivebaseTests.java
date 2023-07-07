@@ -115,13 +115,13 @@ class DrivebaseTests {
     }
 
     @Test 
-    public void testArcadeDrive_withThrottle0Rotate0_expectLeft0Right0() {
-        double throttle = 0;
-        double rotate = 0;
+    public void testArcadeDrive_withThrottleNeg1RotateNeg1_expectLeftNeg1Right0() {
+        double throttle = -1;
+        double rotate = -1;
 
         // Here is where we tell EasyMock our expected behavior for our sim hardware
         // This is called recording
-        _hardware.getLeftPrimaryMotor().set(0);
+        _hardware.getLeftPrimaryMotor().set(-1);
         _hardware.getRightPrimaryMotor().set(0);
 
         // Here we call a hardware method called replayHardware()
