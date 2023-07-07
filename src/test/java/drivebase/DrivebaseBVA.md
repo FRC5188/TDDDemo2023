@@ -23,6 +23,8 @@
 | Throttle | Rotate | *Left* | *Right* | *Exception*     |
 | :--------- | -------- | -------- | --------- | :---------------- |
 | -1.01    | 1      | X      | X       | IllegalArgument |
+| 1.01     | 0      | X      | X       | IllegalArgument |
+| 0        | -1.01  | X      | X       | IllegalArgument |
 | -1       | 1.01   | X      | X       | IllegalArgument |
 | -1       | -1     | -1     | 0       | X               |
 | -1       | 0      | -1     | -1      | X               |

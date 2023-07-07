@@ -11,6 +11,10 @@ public class Drivebase extends SubsystemBase {
     }
 
     public void arcadeDrive(double throttle, double rotate) {
+        if (throttle < 0) {
+            throw new IllegalArgumentException("Throttle must be between -1 and 1");
+        }
+
         _hardware.getLeftPrimaryMotor().set(0);
         _hardware.getRightPrimaryMotor().set(0);
     }
