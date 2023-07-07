@@ -77,7 +77,7 @@ class DrivebaseTests {
     @Test 
     public void testArcadeDrive_withThrottle0RotateNeg1Point01_expectIllegalArgumentException() {
         double throttle = 0;
-        double rotate = -1.01;
+        double rotate = -1.01; 
 
         // Here we call a hardware method called replayHardware()
         // This causes EasyMock to run all of the stuff we just recorded
