@@ -17,21 +17,22 @@
 * Input: -1.01, -1, 1, 1.01
 * Output: -1, 0, 1
 
-### BVA Step 4: determine the test case
+### BVA Step 4: determine the test cases
 
 
-| Throttle | Rotate | *Left* | *Right* | *Exception*     |
-| :--------- | -------- | -------- | --------- | :---------------- |
-| -1.01    | 1      | X      | X       | IllegalArgument |
-| 1.01     | 0      | X      | X       | IllegalArgument |
-| 0        | -1.01  | X      | X       | IllegalArgument |
-| -1       | 1.01   | X      | X       | IllegalArgument |
-| -1       | -1     | -1     | 0       | X               |
-| -1       | 0      | -1     | -1      | X               |
-| -1       | 1      | 0      | -1      | X               |
-| 0        | -1     | -1     | 1       | X               |
-| 0        | 0      | 0      | 0       | X               |
-| 0        | 1      | 1      | -1      | X               |
-| 1        | -1     | 0      | 1       | X               |
-| 1        | 0      | 1      | 1       | X               |
-| 1        | 1      | 1      | 0       | X               |
+| Done | Throttle | Rotate | *Left* | *Right* | *Exception*     |
+| ------ | :--------- | -------- | -------- | --------- | :---------------- |
+| X    | -1.01    | 1      | X      | X       | IllegalArgument |
+| X    | 1.01     | 0      | X      | X       | IllegalArgument |
+| X    | 0        | -1.01  | X      | X       | IllegalArgument |
+| X    | -1       | 1.01   | X      | X       | IllegalArgument |
+| X    | -1       | -1     | -1     | 0       | X               |
+| X    | -1       | 0      | -1     | -1      | X               |
+| X    | -1       | 1      | 0      | -1      | X               |
+| X    | 0        | -1     | -1     | 1       | X               |
+|      | 0        | 0      | 0      | 0       | X               |
+|      | 0        | 1      | 1      | -1      | X               |
+|      | 1        | -1     | 0      | 1       | X               |
+|      | 1        | 0      | 1      | 1       | X               |
+|      | 1        | 1      | 1      | 0       | X               |
+|      | 1        | 0.5    | 1      | 0.33    | X               |

@@ -22,6 +22,14 @@ public class Drivebase extends SubsystemBase {
 
         if (left < -1) {
             left = -1;
+        } else if (left > 1) {
+            left = 1;
+        } 
+
+        if (right < -1) {
+            right = -1;
+        } else if (right > 1) {
+            right = 1;
         }
 
         _hardware.getLeftPrimaryMotor().set(left);
