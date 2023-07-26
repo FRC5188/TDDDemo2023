@@ -281,4 +281,76 @@ class DrivebaseTests {
         // So we will only call verifyHardware()
         _hardware.verifyHardware();
     }
+
+    @Test 
+    public void testArcadeDrive_withThrottle1Rotate0_expectLeft1Right1() {
+        double throttle = 1;
+        double rotate = 0;
+
+        // Here is where we tell EasyMock our expected behavior for our sim hardware
+        // This is called recording
+        _hardware.getLeftPrimaryMotor().set(1);
+        _hardware.getRightPrimaryMotor().set(1);
+
+        // Here we call a hardware method called replayHardware()
+        // This causes EasyMock to run all of the stuff we just recorded
+        _hardware.replayHardware();
+
+        // Here is where we call the method under test
+        _drivebase.arcadeDrive(throttle, rotate);
+
+        // Here is where we make assertions about behavior and call verifyHardware()
+        // In this test, our assertions are handled by EasyMock, since
+        // we tell it what we expect our motors to output.
+        // So we will only call verifyHardware()
+        _hardware.verifyHardware();
+    }
+
+    @Test 
+    public void testArcadeDrive_withThrottle1Rotate1_expectLeft1Right0() {
+        double throttle = 1;
+        double rotate = 1;
+
+        // Here is where we tell EasyMock our expected behavior for our sim hardware
+        // This is called recording
+        _hardware.getLeftPrimaryMotor().set(1);
+        _hardware.getRightPrimaryMotor().set(0);
+
+        // Here we call a hardware method called replayHardware()
+        // This causes EasyMock to run all of the stuff we just recorded
+        _hardware.replayHardware();
+
+        // Here is where we call the method under test
+        _drivebase.arcadeDrive(throttle, rotate);
+
+        // Here is where we make assertions about behavior and call verifyHardware()
+        // In this test, our assertions are handled by EasyMock, since
+        // we tell it what we expect our motors to output.
+        // So we will only call verifyHardware()
+        _hardware.verifyHardware();
+    }
+
+    @Test 
+    public void testArcadeDrive_withThrottle1Rotate0p5_expectLeft1Right0p33() {
+        double throttle = 1;
+        double rotate = 0.5;
+
+        // Here is where we tell EasyMock our expected behavior for our sim hardware
+        // This is called recording
+        _hardware.getLeftPrimaryMotor().set(1);
+        _hardware.getRightPrimaryMotor().set(0.33);
+
+        // Here we call a hardware method called replayHardware()
+        // This causes EasyMock to run all of the stuff we just recorded
+        _hardware.replayHardware();
+
+        // Here is where we call the method under test
+        _drivebase.arcadeDrive(throttle, rotate);
+
+        // Here is where we make assertions about behavior and call verifyHardware()
+        // In this test, our assertions are handled by EasyMock, since
+        // we tell it what we expect our motors to output.
+        // So we will only call verifyHardware()
+        _hardware.verifyHardware();
+    }
 }
