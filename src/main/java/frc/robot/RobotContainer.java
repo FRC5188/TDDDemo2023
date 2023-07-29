@@ -6,9 +6,15 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import frc.robot.hardware.drivebase.RealDrivebaseHardware;
+import frc.robot.subsystems.Drivebase;
 
 public class RobotContainer {
+  private Drivebase _drivebaseSubsystem;
+
   public RobotContainer() {
+    _drivebaseSubsystem = new Drivebase(new RealDrivebaseHardware());
+
     configureBindings();
   }
 
