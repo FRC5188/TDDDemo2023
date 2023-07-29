@@ -43,4 +43,15 @@ public class BallPathTests {
         assertThrows(IllegalArgumentException.class, () -> _ballPath.updateBallPathState(currentState, numBalls));
         _hardware.verifyHardware();
     }
+
+    @Test
+    void testUpdateBallPathState_with3Balls_expectIllegalArgumentException() {
+        BallPathState currentState = BallPathState.Stopped;
+        int numBalls = 3;
+
+        _hardware.replayHardware();
+
+        assertThrows(IllegalArgumentException.class, () -> _ballPath.updateBallPathState(currentState, numBalls));
+        _hardware.verifyHardware();
+    }
 }
