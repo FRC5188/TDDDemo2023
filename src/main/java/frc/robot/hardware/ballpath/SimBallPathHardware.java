@@ -28,6 +28,6 @@ public class SimBallPathHardware implements BallPathHardware {
     }
 
     public void verifyHardware() {
-        EasyMock.replay(_lowerLightSensor, _upperLightSensor);
+        EasyMock.verify(_lowerLightSensor, _upperLightSensor);
     }
 }

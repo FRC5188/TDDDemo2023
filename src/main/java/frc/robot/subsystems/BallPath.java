@@ -17,6 +17,32 @@ public class BallPath extends SubsystemBase {
     }
 
     public BallPathState updateBallPathState(BallPathState currentState, int numBalls) {
-        throw new IllegalArgumentException("Ball count must be positive");
+        if (numBalls < 0 || numBalls > 2) {
+            throw new IllegalArgumentException("Ball count must be between 0 and 2");
+        }
+
+        BallPathState newState = currentState;
+
+        switch (currentState) {
+            case Stopped:
+                if (!getLowerLightSensorValue() && !getUpperLightSensorValue()) {
+                    System.out.println("HELLO");
+                    newState = BallPathState.Stopped;
+                }
+            default:
+                break;
+        }
+            
+        
+
+        return newState;
+    }
+
+    public boolean getLowerLightSensorValue() {
+        return !(_hardware.getLowerLightSensor().get());
+    }
+
+    public boolean getUpperLightSensorValue() {
+        return !(_hardware.getUpperLightSensor().get());
     }
 }

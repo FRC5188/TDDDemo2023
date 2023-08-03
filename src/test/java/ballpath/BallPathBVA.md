@@ -22,9 +22,9 @@
 
 | Done | CurrentState | NumOfBalls | ~~LowerLightSensor~~ | ~~UpperLightSensor~~ | *NewState* | *Exception*     |
 | ------ | :------------- | ------------ | ---------------------- | ---------------------- | ------------ | :---------------- |
-|      | Stopped      | -1         | -                    | -                    | X          | IllegalArgument |
-|      | Loading      | 3          | -                    | -                    | X          | IllegalArgument |
-|      | Stopped      | 0          | False                | False                | Stopped    | X               |
+| X    | -            | -1         | -                    | -                    | X          | IllegalArgument |
+| X    | -            | 3          | -                    | -                    | X          | IllegalArgument |
+| X    | Stopped      | 0          | False                | False                | Stopped    | X               |
 |      | Stopped      | 2          | True                 | True                 | Stopped    | X               |
 |      | Stopped      | 1          | True                 | True                 | Loading    | X               |
 |      | Stopped      | 0          | True                 | False                | Loading    | X               |
