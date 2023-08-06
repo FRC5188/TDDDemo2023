@@ -221,4 +221,20 @@ public class BallPathTests {
         assertEquals(expectedState, _ballPath.updateBallPathState(currentState, numBalls));
         _hardware.verifyHardware();
     }
+
+    @Test
+    void testUpdateBallPathState_with2BallsShooting_expectShooting() {
+        // Inputs
+        BallPathState currentState = BallPathState.Shooting;
+        int numBalls = 1;
+
+        // Expected values
+        BallPathState expectedState = BallPathState.Shooting;
+
+        // Run logic
+        _hardware.replayHardware();
+
+        assertEquals(expectedState, _ballPath.updateBallPathState(currentState, numBalls));
+        _hardware.verifyHardware();
+    }
 }

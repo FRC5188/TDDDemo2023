@@ -23,27 +23,31 @@ public class BallPath extends SubsystemBase {
 
         BallPathState newState = currentState;
 
-        boolean lower = getLowerLightSensorValue();
-        boolean upper = getUpperLightSensorValue();
+        if (currentState != BallPathState.Shooting) {
+            // We aren't shooting, so we are checking light sensors
+            boolean lower = getLowerLightSensorValue();
+            boolean upper = getUpperLightSensorValue();
+    
+            switch (currentState) {
+                case Stopped:
+                    if (lower && numBalls < 2) {
+                        // We see a ball trying to come in and
+                        // we can hold more so enter loading state
+                        newState = BallPathState.Loading;
+                    }
+                case Loading:
+                    if (!lower && upper) {
+                        // The ball is in its stopped position so we need to stop the ball path
+                        newState = BallPathState.Stopped;
+                    }
+                default:
+                    break;
+            }
+        } else {
+            // We are shooting so we only care about ball count
 
-        switch (currentState) {
-            case Stopped:
-                if (lower && numBalls < 2) {
-                    // We see a ball trying to come in and
-                    // we can hold more so enter loading state
-                    newState = BallPathState.Loading;
-                }
-            case Loading:
-                if (!lower && upper) {
-                    // The ball is in its stopped position so we need to stop the ball path
-                    newState = BallPathState.Stopped;
-                }
-            default:
-                break;
         }
-            
         
-
         return newState;
     }
 
