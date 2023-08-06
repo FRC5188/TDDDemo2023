@@ -31,7 +31,7 @@
 | X                      | Stopped      | 1          | True                     | False                    | Loading    | -               |
 | X                      | Loading      | 0          | True                     | False                    | Loading    | -               |
 | X                      | Loading      | 1          | False                    | True                     | Stopped    | -               |
-|                        | Loading      | 1          | True                     | True                     | Loading    | -               |
+| X                      | Loading      | 1          | True                     | True                     | Loading    | -               |
 |                        | Loading      | 1          | False                    | False                    | Loading    | -               |
 |                        | Shooting     | 2          | -                        | -                        | Shooting   | -               |
 |                        | Shooting     | 1          | -                        | -                        | Shooting   | -               |
