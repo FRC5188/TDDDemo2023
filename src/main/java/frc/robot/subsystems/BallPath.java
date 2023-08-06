@@ -31,8 +31,8 @@ public class BallPath extends SubsystemBase {
                 if (!lower && !upper) {
                     // We don't see a ball trying to come in so we stay stopped
                     newState = BallPathState.Stopped;
-                } else if (lower && upper) {
-                    // We see a ball trying to come in and are holding at least one
+                } else if (lower) {
+                    // We see a ball trying to come in
                     if (numBalls == 2) {
                         // We can't hold any more so stay stopped
                         newState = BallPathState.Stopped;
