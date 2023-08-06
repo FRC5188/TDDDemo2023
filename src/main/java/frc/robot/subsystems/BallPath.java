@@ -28,18 +28,15 @@ public class BallPath extends SubsystemBase {
 
         switch (currentState) {
             case Stopped:
-                if (!lower && !upper) {
-                    // We don't see a ball trying to come in so we stay stopped
+                if (lower && numBalls < 2) {
+                    // We see a ball trying to come in and
+                    // we can hold more so enter loading state
+                    newState = BallPathState.Loading;
+                }
+            case Loading:
+                if (!lower && upper) {
+                    // The ball is in its stopped position so we need to stop the ball path
                     newState = BallPathState.Stopped;
-                } else if (lower) {
-                    // We see a ball trying to come in
-                    if (numBalls == 2) {
-                        // We can't hold any more so stay stopped
-                        newState = BallPathState.Stopped;
-                    } else {
-                        // We can hold more so enter loading state
-                        newState = BallPathState.Loading;
-                    }
                 }
             default:
                 break;

@@ -167,4 +167,22 @@ public class BallPathTests {
         assertEquals(expectedState, _ballPath.updateBallPathState(currentState, numBalls));
         _hardware.verifyHardware();
     }
+
+    @Test
+    void testUpdateBallPathState_with1BallsLoadingLowFalseUpTrue_expectStopped() {
+        // Inputs
+        BallPathState currentState = BallPathState.Loading;
+        int numBalls = 1;
+        EasyMock.expect(_hardware.getLowerLightSensor().get()).andReturn(true);
+        EasyMock.expect(_hardware.getUpperLightSensor().get()).andReturn(false);
+
+        // Expected values
+        BallPathState expectedState = BallPathState.Stopped;
+
+        // Run logic
+        _hardware.replayHardware();
+
+        assertEquals(expectedState, _ballPath.updateBallPathState(currentState, numBalls));
+        _hardware.verifyHardware();
+    }
 }

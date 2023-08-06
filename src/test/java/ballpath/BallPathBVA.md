@@ -29,7 +29,7 @@
 | X                      | Stopped      | 1          | True                     | True                     | Loading    | -               |
 | X                      | Stopped      | 0          | True                     | False                    | Loading    | -               |
 | X                      | Stopped      | 1          | True                     | False                    | Loading    | -               |
-|                        | Loading      | 0          | True                     | False                    | Loading    | -               |
+| X                      | Loading      | 0          | True                     | False                    | Loading    | -               |
 |                        | Loading      | 1          | False                    | True                     | Stopped    | -               |
 |                        | Loading      | 1          | True                     | True                     | Loading    | -               |
 |                        | Loading      | 1          | False                    | False                    | Loading    | -               |
