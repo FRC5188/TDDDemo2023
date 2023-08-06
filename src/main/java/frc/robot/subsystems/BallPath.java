@@ -23,10 +23,16 @@ public class BallPath extends SubsystemBase {
 
         BallPathState newState = currentState;
 
+        boolean lower = getLowerLightSensorValue();
+        boolean upper = getUpperLightSensorValue();
+
         switch (currentState) {
             case Stopped:
-                if (!getLowerLightSensorValue() && !getUpperLightSensorValue()) {
-                    System.out.println("HELLO");
+                if (!lower && !upper) {
+                    // We don't see a ball trying to come in so we stay stopped
+                    newState = BallPathState.Stopped;
+                } else if (lower && upper) {
+                    // We see a ball and are holding at least one
                     newState = BallPathState.Stopped;
                 }
             default:

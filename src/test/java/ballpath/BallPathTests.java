@@ -63,17 +63,36 @@ public class BallPathTests {
     @Test
     void testUpdateBallPathState_with0BallsStoppedLowFalseUpFalse_expectStopped() {
         BallPathState currentState = BallPathState.Stopped;
+        BallPathState expectedState = BallPathState.Stopped;
         int numBalls = 0;
 
         // This is how we tell EasyMock to expect a function call that returns something
         // And in the .andReturn() we tell it what value to return
-        // For these light sensors, have it return false when it sees something and true otherwise
+        // For these light sensors, do the opposite of what it says in BVA (so true in BVA is false here)
         EasyMock.expect(_hardware.getLowerLightSensor().get()).andReturn(true);
         EasyMock.expect(_hardware.getUpperLightSensor().get()).andReturn(true);
 
         _hardware.replayHardware();
 
-        assertEquals(BallPathState.Stopped, _ballPath.updateBallPathState(currentState, numBalls));
+        assertEquals(BallPathState.Stopped, _ballPath.updateBallPathState(expectedState, numBalls));
+        _hardware.verifyHardware();
+    }
+
+    @Test
+    void testUpdateBallPathState_with2BallsStoppedLowTrueUpTrue_expectStopped() {
+        BallPathState currentState = BallPathState.Stopped;
+        BallPathState expectedState = BallPathState.Stopped;
+        int numBalls = 2;
+
+        // This is how we tell EasyMock to expect a function call that returns something
+        // And in the .andReturn() we tell it what value to return
+        // For these light sensors, do the opposite of what it says in BVA (so true in BVA is false here)
+        EasyMock.expect(_hardware.getLowerLightSensor().get()).andReturn(false);
+        EasyMock.expect(_hardware.getUpperLightSensor().get()).andReturn(false);
+
+        _hardware.replayHardware();
+
+        assertEquals(expectedState, _ballPath.updateBallPathState(currentState, numBalls));
         _hardware.verifyHardware();
     }
 }
