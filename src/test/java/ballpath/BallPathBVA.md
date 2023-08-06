@@ -33,6 +33,6 @@
 | X                      | Loading      | 1          | False                    | True                     | Stopped    | -               |
 | X                      | Loading      | 1          | True                     | True                     | Loading    | -               |
 | X                      | Loading      | 1          | False                    | False                    | Loading    | -               |
-|                        | Shooting     | 2          | -                        | -                        | Shooting   | -               |
+| X                      | Shooting     | 2          | -                        | -                        | Shooting   | -               |
 |                        | Shooting     | 1          | -                        | -                        | Shooting   | -               |
 |                        | Shooting     | 0          | -                        | -                        | Stopped    | -               |
