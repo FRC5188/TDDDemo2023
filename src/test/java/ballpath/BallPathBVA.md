@@ -27,7 +27,7 @@
 | X                      | Stopped      | 0          | False                    | False                    | Stopped    | -               |
 | X                      | Stopped      | 2          | True                     | True                     | Stopped    | -               |
 | X                      | Stopped      | 1          | True                     | True                     | Loading    | -               |
-|                        | Stopped      | 0          | True                     | False                    | Loading    | -               |
+| X                      | Stopped      | 0          | True                     | False                    | Loading    | -               |
 |                        | Stopped      | 1          | True                     | False                    | Loading    | -               |
 |                        | Loading      | 0          | True                     | False                    | Loading    | -               |
 |                        | Loading      | 1          | False                    | True                     | Stopped    | -               |
