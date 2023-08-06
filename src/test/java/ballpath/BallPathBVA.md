@@ -34,5 +34,5 @@
 | X                      | Loading      | 1          | True                     | True                     | Loading    | -               |
 | X                      | Loading      | 1          | False                    | False                    | Loading    | -               |
 | X                      | Shooting     | 2          | -                        | -                        | Shooting   | -               |
-|                        | Shooting     | 1          | -                        | -                        | Shooting   | -               |
-|                        | Shooting     | 0          | -                        | -                        | Stopped    | -               |
+| X                      | Shooting     | 1          | -                        | -                        | Shooting   | -               |
+| X                      | Shooting     | 0          | -                        | -                        | Stopped    | -               |

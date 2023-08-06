@@ -45,7 +45,10 @@ public class BallPath extends SubsystemBase {
             }
         } else {
             // We are shooting so we only care about ball count
-
+            if (numBalls == 0) {
+                // We have no more balls, so stop trying to shoot
+                newState = BallPathState.Stopped;
+            }
         }
         
         return newState;
