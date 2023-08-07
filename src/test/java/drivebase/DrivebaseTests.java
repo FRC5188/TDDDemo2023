@@ -12,8 +12,6 @@ import frc.robot.hardware.drivebase.SimDrivebaseHardware;
 import frc.robot.subsystems.Drivebase;
 
 class DrivebaseTests {
-    static final double DELTA = 1e-2; // acceptable deviation range
-
     SimDrivebaseHardware _hardware;
     Drivebase _drivebase;
     CANSparkMax _leftMotor;
