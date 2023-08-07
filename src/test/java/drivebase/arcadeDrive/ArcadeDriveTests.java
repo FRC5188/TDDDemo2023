@@ -1,4 +1,4 @@
-package drivebase;
+package drivebase.arcadeDrive;
 import edu.wpi.first.hal.HAL;
 
 import static org.junit.Assert.assertThrows;
@@ -11,7 +11,7 @@ import com.revrobotics.CANSparkMax;
 import frc.robot.hardware.drivebase.SimDrivebaseHardware;
 import frc.robot.subsystems.Drivebase;
 
-class DrivebaseTests {
+class ArcadeDriveTests {
     SimDrivebaseHardware _hardware;
     Drivebase _drivebase;
     CANSparkMax _leftMotor;
