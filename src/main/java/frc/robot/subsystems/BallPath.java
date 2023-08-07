@@ -61,4 +61,20 @@ public class BallPath extends SubsystemBase {
     public boolean getUpperLightSensorValue() {
         return !(_hardware.getUpperLightSensor().get());
     }
+
+    public int updateBallCount(BallPathState currentState, int numBalls) {
+        if (lowerLightSensorTransitioned()) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    public boolean lowerLightSensorTransitioned() {
+        return true;
+    }
+
+    public boolean shooterLightSensorTransitioned() {
+        return true;
+    }
 }
