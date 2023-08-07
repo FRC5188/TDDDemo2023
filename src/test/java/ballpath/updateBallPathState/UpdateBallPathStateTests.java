@@ -1,4 +1,4 @@
-package ballpath;
+package ballpath.updateBallPathState;
 
 import edu.wpi.first.hal.HAL;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -17,7 +17,7 @@ import frc.robot.hardware.ballpath.SimBallPathHardware;
 import frc.robot.subsystems.BallPath;
 import frc.robot.subsystems.BallPath.BallPathState;
 
-public class BallPathTests {
+public class UpdateBallPathStateTests {
     SimBallPathHardware _hardware;
     BallPath _ballPath;
     DigitalInput _lowerLightSensor;
@@ -74,7 +74,7 @@ public class BallPathTests {
 
         _hardware.replayHardware();
 
-        assertEquals(BallPathState.Stopped, _ballPath.updateBallPathState(expectedState, numBalls));
+        assertEquals(expectedState, _ballPath.updateBallPathState(currentState, numBalls));
         _hardware.verifyHardware();
     }
 
