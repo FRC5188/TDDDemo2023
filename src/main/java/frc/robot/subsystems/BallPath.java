@@ -77,4 +77,8 @@ public class BallPath extends SubsystemBase {
     public boolean shooterLightSensorTransitioned() {
         return true;
     }
+
+    public boolean lightSensorTransitioned(boolean currentReading, boolean prevReading) {
+        return false;
+    }
 }
