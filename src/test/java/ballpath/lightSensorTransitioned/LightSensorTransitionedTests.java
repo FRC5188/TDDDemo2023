@@ -3,7 +3,6 @@ package ballpath.lightSensorTransitioned;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.easymock.EasyMock;
-// Make sure this import is org.junit.jupiter.api.Test, not org.junit.Test
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,10 +15,10 @@ public class LightSensorTransitionedTests {
     BallPath _ballPath;
     SimBallPathHardware _hardware;
 
-    @BeforeEach 
+    @BeforeEach
     void setup() {
         assert HAL.initialize(500, 0); // initialize the HAL, crash if failed
-        
+
         // Create our sim hardware
         _hardware = new SimBallPathHardware();
         _ballPath = new BallPath(_hardware);
@@ -36,7 +35,7 @@ public class LightSensorTransitionedTests {
     @SuppressWarnings("PMD.SignatureDeclareThrowsException")
     @AfterEach
     void shutdown() throws Exception {
-        
+
     }
 
     @Test
