@@ -53,7 +53,7 @@ public class UpdateBallPathStateTests {
     void testUpdateBallPathState_with3Balls_expectIllegalArgumentException() {
         BallPathState currentState = BallPathState.Stopped;
         int numBalls = 3;
- 
+
         _hardware.replayHardware();
 
         assertThrows(IllegalArgumentException.class,
