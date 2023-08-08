@@ -27,7 +27,7 @@ public class Drivebase extends SubsystemBase {
         if (max > 1) {
             left /= max;
             right /= max;
-        } 
+        }
 
         // Round our values to the specificity we need
         // This will let our unit tests that use decimals to pass

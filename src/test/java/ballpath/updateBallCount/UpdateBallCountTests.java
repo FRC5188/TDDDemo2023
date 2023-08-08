@@ -1,9 +1,6 @@
 package ballpath.updateBallCount;
 
 import edu.wpi.first.hal.HAL;
-import edu.wpi.first.wpilibj.DigitalInput;
-
-import static org.junit.Assert.assertThrows;
 
 import org.easymock.EasyMock;
 
@@ -19,15 +16,15 @@ import frc.robot.subsystems.BallPath.BallPathState;
 public class UpdateBallCountTests {
     BallPath _ballPath;
 
-    @BeforeEach 
+    @BeforeEach
     void setup() {
         assert HAL.initialize(500, 0); // initialize the HAL, crash if failed
-        
+
         // Create our sim hardware
         _ballPath = EasyMock.partialMockBuilder(BallPath.class)
-                            .addMockedMethod("lowerLightSensorTransitioned")
-                            .addMockedMethod("shooterLightSensorTransitioned")
-                            .mock();
+                .addMockedMethod("lowerLightSensorTransitioned")
+                .addMockedMethod("shooterLightSensorTransitioned")
+                .mock();
     }
 
     void replayMocks() {
@@ -41,7 +38,7 @@ public class UpdateBallCountTests {
     @SuppressWarnings("PMD.SignatureDeclareThrowsException")
     @AfterEach
     void shutdown() throws Exception {
-        
+
     }
 
     @Test

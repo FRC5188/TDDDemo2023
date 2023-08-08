@@ -1,6 +1,12 @@
 plugins {
     id "java"
     id "edu.wpi.first.GradleRIO" version "2023.4.2"
+    id 'jacoco'
+    id 'checkstyle'
+}
+
+repositories {
+    mavenCentral()
 }
 
 sourceCompatibility = JavaVersion.VERSION_11
@@ -68,9 +74,6 @@ dependencies {
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
-    testImplementation 'io.cucumber:cucumber-java:5.6.0',
-                        'io.cucumber:cucumber-junit:5.6.0',
-                        'io.cucumber:cucumber-picocontainer:5.6.0'
     
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
@@ -103,22 +106,44 @@ tasks.withType(JavaCompile) {
     options.compilerArgs.add '-XDstringConcat=inline'
 }
 
-configurations {
-    cucumberRuntime {
-        extendsFrom testImplementation
-    }
+jacoco {
+    toolVersion = "0.8.8"
 }
 
-task cucumber() {
-    dependsOn assemble, testClasses
+jacocoTestReport {
+    dependsOn test
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports after running tests."
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.enabled true
+    }
+}
+test.finalizedBy(jacocoTestReport)
+
+task codeCoverageInfo (dependsOn: jacocoTestReport) {
+    ext.srcFile = file("${reportsDir}/jacoco/test/jacocoTestReport.xml")
+
     doLast {
-        javaexec {
-            main = "io.cucumber.core.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty',
-                    '--glue',
-                    'java',
-                    'src/test/resources']
+        println "Transforming source file."
+
+        def parser = new XmlParser()
+        parser.setFeature("http://apache.org/xml/features/disallow-doctype-decl",
+                false);
+        parser.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+        parser.setFeature("http://xml.org/sax/features/namespaces", false)
+
+        def reportNode = parser.parse(srcFile)
+        reportNode.children().each {
+            if(it.name() == 'counter') {
+                String type = it.@type
+                float missed = it.@missed as float
+                float covered = it.@covered as float
+                float percentage = covered / (missed + covered) * 100
+                println "Code Coverage[$type]: $percentage%"
+            }
         }
     }
 }
+jacocoTestReport.finalizedBy(codeCoverageInfo)

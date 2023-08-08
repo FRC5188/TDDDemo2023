@@ -29,5 +29,4 @@ public class SimDrivebaseHardware implements DrivebaseHardware {
     public void verifyHardware() {
         EasyMock.verify(_leftPrimary, _rightPrimary);
     }
-    
 }
