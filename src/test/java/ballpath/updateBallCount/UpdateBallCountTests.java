@@ -13,7 +13,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import frc.robot.hardware.ballpath.SimBallPathHardware;
 import frc.robot.subsystems.BallPath;
 import frc.robot.subsystems.BallPath.BallPathState;
 
