@@ -77,4 +77,17 @@ public class LightSensorTransitionedTests {
         // Run test
         assertEquals(expected, _ballPath.lightSensorTransitioned(currentReading, prevReading));
     }
+
+    @Test
+    void testLightSensorTransitioned_withCurrentTruePrevTrue_expectFalse() {
+        // Set up test parameters
+        boolean currentReading = true;
+        boolean prevReading = true;
+
+        // Set expected outputs
+        boolean expected = false;
+
+        // Run test
+        assertEquals(expected, _ballPath.lightSensorTransitioned(currentReading, prevReading));
+    }
 }
