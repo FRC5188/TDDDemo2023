@@ -78,11 +78,13 @@ public class BallPath extends SubsystemBase {
     }
 
     public boolean lowerLightSensorTransitioned() {
-        return lightSensorTransitioned(getLowerLightSensorValue(), _prevLowerLightSensorReading);
+        return lightSensorTransitioned(getLowerLightSensorValue(),
+                _prevLowerLightSensorReading);
     }
 
     public boolean shooterLightSensorTransitioned() {
-        return lightSensorTransitioned(getShooterLightSensorValue(), _prevShooterLightSensorReading);
+        return lightSensorTransitioned(getShooterLightSensorValue(),
+                _prevShooterLightSensorReading);
     }
 
     public boolean lightSensorTransitioned(boolean currentReading, boolean prevReading) {
