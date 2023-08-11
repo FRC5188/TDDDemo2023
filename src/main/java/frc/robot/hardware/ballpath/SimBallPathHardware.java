@@ -22,7 +22,7 @@ public class SimBallPathHardware implements BallPathHardware {
     public DigitalInput getUpperLightSensor() {
         return _upperLightSensor;
     }
-    
+
     public void replayHardware() {
         EasyMock.replay(_lowerLightSensor, _upperLightSensor);
     }

@@ -3,11 +3,10 @@ package ballpath.updateBallPathState;
 import edu.wpi.first.hal.HAL;
 import edu.wpi.first.wpilibj.DigitalInput;
 
-import static org.junit.Assert.assertThrows;
-
 import org.easymock.EasyMock;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,10 +22,10 @@ public class UpdateBallPathStateTests {
     DigitalInput _lowerLightSensor;
     DigitalInput _upperLightSensor;
 
-    @BeforeEach 
+    @BeforeEach
     void setup() {
         assert HAL.initialize(500, 0); // initialize the HAL, crash if failed
-        
+
         // Create our sim hardware
         _hardware = new SimBallPathHardware();
         _ballPath = new BallPath(_hardware);
@@ -35,7 +34,7 @@ public class UpdateBallPathStateTests {
     @SuppressWarnings("PMD.SignatureDeclareThrowsException")
     @AfterEach
     void shutdown() throws Exception {
-        
+
     }
 
     @Test
@@ -45,7 +44,8 @@ public class UpdateBallPathStateTests {
 
         _hardware.replayHardware();
 
-        assertThrows(IllegalArgumentException.class, () -> _ballPath.updateBallPathState(currentState, numBalls));
+        assertThrows(IllegalArgumentException.class,
+                () -> _ballPath.updateBallPathState(currentState, numBalls));
         _hardware.verifyHardware();
     }
 
@@ -56,7 +56,8 @@ public class UpdateBallPathStateTests {
 
         _hardware.replayHardware();
 
-        assertThrows(IllegalArgumentException.class, () -> _ballPath.updateBallPathState(currentState, numBalls));
+        assertThrows(IllegalArgumentException.class,
+                () -> _ballPath.updateBallPathState(currentState, numBalls));
         _hardware.verifyHardware();
     }
 
@@ -68,7 +69,8 @@ public class UpdateBallPathStateTests {
 
         // This is how we tell EasyMock to expect a function call that returns something
         // And in the .andReturn() we tell it what value to return
-        // For these light sensors, do the opposite of what it says in BVA (so true in BVA is false here)
+        // For these light sensors, do the opposite of what it says in BVA (so true in
+        // BVA is false here)
         EasyMock.expect(_hardware.getLowerLightSensor().get()).andReturn(true);
         EasyMock.expect(_hardware.getUpperLightSensor().get()).andReturn(true);
 
@@ -86,7 +88,8 @@ public class UpdateBallPathStateTests {
 
         // This is how we tell EasyMock to expect a function call that returns something
         // And in the .andReturn() we tell it what value to return
-        // For these light sensors, do the opposite of what it says in BVA (so true in BVA is false here)
+        // For these light sensors, do the opposite of what it says in BVA (so true in
+        // BVA is false here)
         EasyMock.expect(_hardware.getLowerLightSensor().get()).andReturn(false);
         EasyMock.expect(_hardware.getUpperLightSensor().get()).andReturn(false);
 

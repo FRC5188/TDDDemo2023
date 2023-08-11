@@ -27,7 +27,7 @@ public class BallPath extends SubsystemBase {
             // We aren't shooting, so we are checking light sensors
             boolean lower = getLowerLightSensorValue();
             boolean upper = getUpperLightSensorValue();
-    
+
             switch (currentState) {
                 case Stopped:
                     if (lower && numBalls < 2) {
@@ -50,7 +50,7 @@ public class BallPath extends SubsystemBase {
                 newState = BallPathState.Stopped;
             }
         }
-        
+
         return newState;
     }
 

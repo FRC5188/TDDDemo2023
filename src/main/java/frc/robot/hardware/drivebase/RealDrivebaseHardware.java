@@ -10,8 +10,10 @@ public class RealDrivebaseHardware implements DrivebaseHardware {
     private CANSparkMax _rightPrimary;
 
     public RealDrivebaseHardware() {
-        _leftPrimary = new CANSparkMax(HardwareConstants.CanIds.LEFT_PRIMARY_MOTOR_ID, MotorType.kBrushless);
-        _rightPrimary = new CANSparkMax(HardwareConstants.CanIds.RIGHT_PRIMARY_MOTOR_ID, MotorType.kBrushless);
+        _leftPrimary = new CANSparkMax(
+            HardwareConstants.CanIds.LEFT_PRIMARY_MOTOR_ID, MotorType.kBrushless);
+        _rightPrimary = new CANSparkMax(
+            HardwareConstants.CanIds.RIGHT_PRIMARY_MOTOR_ID, MotorType.kBrushless);
     }
 
     @Override
