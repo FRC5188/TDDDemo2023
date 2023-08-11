@@ -12,6 +12,9 @@ public class BallPath extends SubsystemBase {
 
     private BallPathHardware _hardware;
 
+    private boolean _prevLowerLightSensorReading;
+    private boolean _prevShooterLightSensorReading;
+
     public BallPath(BallPathHardware hardware) {
         _hardware = hardware;
     }
@@ -62,6 +65,10 @@ public class BallPath extends SubsystemBase {
         return !(_hardware.getUpperLightSensor().get());
     }
 
+    public boolean getShooterLightSensorValue() {
+        return !(_hardware.getShooterLightSensor().get());
+    }
+
     public int updateBallCount(BallPathState currentState, int numBalls) {
         if (lowerLightSensorTransitioned()) {
             return 1;
@@ -71,11 +78,13 @@ public class BallPath extends SubsystemBase {
     }
 
     public boolean lowerLightSensorTransitioned() {
-        return true;
+        return lightSensorTransitioned(getLowerLightSensorValue(),
+                _prevLowerLightSensorReading);
     }
 
     public boolean shooterLightSensorTransitioned() {
-        return true;
+        return lightSensorTransitioned(getShooterLightSensorValue(),
+                _prevShooterLightSensorReading);
     }
 
     public boolean lightSensorTransitioned(boolean currentReading, boolean prevReading) {

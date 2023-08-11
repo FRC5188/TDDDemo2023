@@ -6,4 +6,6 @@ public interface BallPathHardware {
     DigitalInput getLowerLightSensor();
 
     DigitalInput getUpperLightSensor();
+
+    DigitalInput getShooterLightSensor();
 }

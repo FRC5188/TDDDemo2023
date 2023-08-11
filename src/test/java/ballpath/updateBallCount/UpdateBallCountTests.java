@@ -42,7 +42,7 @@ public class UpdateBallCountTests {
     }
 
     @Test
-    void testUpdateBallCount_withCount0StateLoading_expect1() {
+    void testUpdateBallCount_withCount0StateLoadingLowerTransitioned_expect1() {
         BallPathState currentState = BallPathState.Loading;
         int currentNumBalls = 0;
         EasyMock.expect(_ballPath.lowerLightSensorTransitioned()).andReturn(true);
