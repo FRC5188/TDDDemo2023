@@ -79,6 +79,6 @@ public class BallPath extends SubsystemBase {
     }
 
     public boolean lightSensorTransitioned(boolean currentReading, boolean prevReading) {
-        return false;
+        return currentReading ^ prevReading;
     }
 }
