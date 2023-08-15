@@ -72,27 +72,27 @@ public class BallPath extends SubsystemBase {
     public int updateBallCount(BallPathState currentState, int numBalls) {
 
         //catch an invalid number of balls passed into the system
-        if(numBalls > 2 || numBalls < 0) { 
+        if (numBalls > 2 || numBalls < 0) {
             throw new IllegalArgumentException("Invalid number of balls!");
         }
 
         //check which state the ballpath is in and perform logic from there
-        switch (currentState){
+        switch (currentState) {
             case Stopped:
                 return numBalls;
             case Loading:
                 //add one ball when we detect a new ball into the ballpath
-                if(lowerLightSensorTransitioned())
+                if (lowerLightSensorTransitioned()) {
                     return numBalls + 1;
+                }
                 return numBalls;
             case Shooting:
                 //remove one ball when we detect a ball leaving through the shooter
-                if(shooterLightSensorTransitioned())
+                if (shooterLightSensorTransitioned()) {
                     return numBalls - 1;
+                }
                 return numBalls;
             default:
-                //shouldn't need this but vscode doesn't like not having a default for an enum. 
-                //stopped logic could be placed here instead, but I prefer having a defined case for readabiltiy -Mike
                 return numBalls;
         }
     }
