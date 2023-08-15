@@ -54,4 +54,114 @@ public class UpdateBallCountTests {
         assertEquals(expectedNumBalls, _ballPath.updateBallCount(currentState, currentNumBalls));
         verifyMocks();
     }
+    @Test
+    void testUpdateBallCount_withCount1StateLoadingLowerTransitioned_expect2() {
+        BallPathState currentState = BallPathState.Loading;
+        int currentNumBalls = 1;
+        EasyMock.expect(_ballPath.lowerLightSensorTransitioned()).andReturn(true);
+
+        int expectedNumBalls = 2;
+
+        replayMocks();
+
+        assertEquals(expectedNumBalls, _ballPath.updateBallCount(currentState, currentNumBalls));
+        verifyMocks();
+    }
+
+    @Test
+    void testUpdateBallCount_withCount1StateStopped_expect1() {
+        BallPathState currentState = BallPathState.Stopped;
+        int currentNumBalls = 1;
+
+        int expectedNumBalls = 1;
+
+        replayMocks();
+
+        assertEquals(expectedNumBalls, _ballPath.updateBallCount(currentState, currentNumBalls));
+        verifyMocks();
+    }
+
+    @Test 
+    void testUpdateBallCount_withCount0StateLoadingLowerNotTransitioned_expect0() {
+        BallPathState currentState = BallPathState.Loading;
+        int currentNumBalls = 0;
+        EasyMock.expect(_ballPath.lowerLightSensorTransitioned()).andReturn(false);
+
+        int expectedNumBalls = 0;
+
+        replayMocks();
+
+        assertEquals(expectedNumBalls, _ballPath.updateBallCount(currentState, currentNumBalls));
+        verifyMocks();
+    }
+
+    @Test 
+    void testUpdateBallCount_withCount1StateLoadingLowerNotTransitioned_expect1() {
+        BallPathState currentState = BallPathState.Loading;
+        int currentNumBalls = 1;
+        EasyMock.expect(_ballPath.lowerLightSensorTransitioned()).andReturn(false);
+
+        int expectedNumBalls = 1;
+
+        replayMocks();
+
+        assertEquals(expectedNumBalls, _ballPath.updateBallCount(currentState, currentNumBalls));
+        verifyMocks();
+    }
+
+    @Test
+    void testUpdateBallCount_withCount2StateShootingShooterTransitioned_expect1(){
+        BallPathState currentState = BallPathState.Shooting;
+        int currentNumBalls = 2;
+        EasyMock.expect(_ballPath.shooterLightSensorTransitioned()).andReturn(true);
+
+        int expectedNumBalls = 1;
+
+        replayMocks();
+
+        assertEquals(expectedNumBalls, _ballPath.updateBallCount(currentState, currentNumBalls));
+        verifyMocks();
+    }
+
+    @Test
+    void testUpdateBallCount_withCount1StateShootingShooterTransitioned_expect0(){
+        BallPathState currentState = BallPathState.Shooting;
+        int currentNumBalls = 1;
+        EasyMock.expect(_ballPath.shooterLightSensorTransitioned()).andReturn(true);
+
+        int expectedNumBalls = 0;
+
+        replayMocks();
+
+        assertEquals(expectedNumBalls, _ballPath.updateBallCount(currentState, currentNumBalls));
+        verifyMocks();
+    }
+
+    @Test
+    void testUpdateBallCount_withCount2StateShootingShooterNotTransitioned_expect2(){
+        BallPathState currentState = BallPathState.Shooting;
+        int currentNumBalls = 2;
+        EasyMock.expect(_ballPath.shooterLightSensorTransitioned()).andReturn(false);
+
+        int expectedNumBalls = 2;
+
+        replayMocks();
+
+        assertEquals(expectedNumBalls, _ballPath.updateBallCount(currentState, currentNumBalls));
+        verifyMocks();
+    }
+
+    @Test
+    void testUpdateBallCount_withCount1StateShootingShooterNotTransitioned_expect1(){
+        BallPathState currentState = BallPathState.Shooting;
+        int currentNumBalls = 1;
+        EasyMock.expect(_ballPath.shooterLightSensorTransitioned()).andReturn(false);
+
+        int expectedNumBalls = 1;
+
+        replayMocks();
+
+        assertEquals(expectedNumBalls, _ballPath.updateBallCount(currentState, currentNumBalls));
+        verifyMocks();
+    }
 }
