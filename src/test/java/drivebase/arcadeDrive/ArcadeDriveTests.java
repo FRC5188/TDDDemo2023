@@ -9,8 +9,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.revrobotics.CANSparkMax;
+
+import frc.robot.drivebase.Drivebase;
 import frc.robot.hardware.drivebase.SimDrivebaseHardware;
-import frc.robot.subsystems.Drivebase;
 
 class ArcadeDriveTests {
     SimDrivebaseHardware _hardware;

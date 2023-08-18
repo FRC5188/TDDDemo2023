@@ -1,4 +1,4 @@
-package ballpath.lightSensorTransitioned;
+package ballpath.subsystemFeatures.lightSensorTransitioned;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -8,8 +8,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 import edu.wpi.first.hal.HAL;
+import frc.robot.ballpath.logic.BallPath;
 import frc.robot.hardware.ballpath.SimBallPathHardware;
-import frc.robot.subsystems.BallPath;
 
 public class LightSensorTransitionedTests {
     BallPath _ballPath;

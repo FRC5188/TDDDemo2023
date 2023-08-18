@@ -1,6 +1,8 @@
-package ballpath.updateBallCount;
+package ballpath.subsystemFeatures.updateBallCount;
 
 import edu.wpi.first.hal.HAL;
+import frc.robot.ballpath.logic.BallPath;
+import frc.robot.ballpath.logic.BallPath.BallPathState;
 
 import org.easymock.EasyMock;
 
@@ -9,9 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import frc.robot.subsystems.BallPath;
-import frc.robot.subsystems.BallPath.BallPathState;
 
 public class UpdateBallCountTests {
     BallPath _ballPath;
