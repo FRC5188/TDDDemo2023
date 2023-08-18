@@ -5,7 +5,7 @@ import edu.wpi.first.hal.HAL;
 import org.easymock.EasyMock;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -47,13 +47,10 @@ public class UpdateBallCountTests {
         BallPathState currentState = BallPathState.Loading;
         int currentNumBalls = -1;
 
-        try {
-            _ballPath.updateBallCount(currentState, currentNumBalls);
-            fail("updateBallCount did not throw exception");
-        } catch(Exception e){
-            String expectedErrorMessage = "Invalid number of balls, numBalls must be between 0 and 2.";
-            assertEquals(expectedErrorMessage, e.getMessage());
-        }
+        replayMocks();
+        
+        assertThrows(IllegalArgumentException.class, () -> _ballPath.updateBallCount(currentState, currentNumBalls), "Ball count must be between 0 and 2");
+        verifyMocks();
     }
 
     @Test
@@ -61,13 +58,10 @@ public class UpdateBallCountTests {
         BallPathState currentState = BallPathState.Loading;
         int currentNumBalls = 3;
 
-        try {
-            _ballPath.updateBallCount(currentState, currentNumBalls);
-            fail("updateBallCount did not throw exception");
-        } catch(Exception e){
-            String expectedErrorMessage = "Invalid number of balls, numBalls must be between 0 and 2.";
-            assertEquals(expectedErrorMessage, e.getMessage());
-        }
+        replayMocks();
+        
+        assertThrows(IllegalArgumentException.class, () -> _ballPath.updateBallCount(currentState, currentNumBalls), "Ball count must be between 0 and 2");
+        verifyMocks();
     }
 
     @Test
