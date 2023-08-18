@@ -73,7 +73,7 @@ public class BallPath extends SubsystemBase {
 
         //catch an invalid number of balls passed into the system
         if (numBalls > 2 || numBalls < 0) {
-            throw new IllegalArgumentException("Invalid number of balls!");
+            throw new IllegalArgumentException("Invalid number of balls, numBalls must be between 0 and 2.");
         }
 
         //check which state the ballpath is in and perform logic from there

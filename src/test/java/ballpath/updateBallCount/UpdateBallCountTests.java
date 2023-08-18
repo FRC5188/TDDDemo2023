@@ -5,6 +5,7 @@ import edu.wpi.first.hal.HAL;
 import org.easymock.EasyMock;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -42,6 +43,34 @@ public class UpdateBallCountTests {
     }
 
     @Test
+    void testUpdateBallCount_withCountneg1_expectError() {
+        BallPathState currentState = BallPathState.Loading;
+        int currentNumBalls = -1;
+
+        try {
+            _ballPath.updateBallCount(currentState, currentNumBalls);
+            fail("updateBallCount did not throw exception");
+        } catch(Exception e){
+            String expectedErrorMessage = "Invalid number of balls, numBalls must be between 0 and 2.";
+            assertEquals(expectedErrorMessage, e.getMessage());
+        }
+    }
+
+    @Test
+    void testUpdateBallCount_withCount3_expectError() {
+        BallPathState currentState = BallPathState.Loading;
+        int currentNumBalls = 3;
+
+        try {
+            _ballPath.updateBallCount(currentState, currentNumBalls);
+            fail("updateBallCount did not throw exception");
+        } catch(Exception e){
+            String expectedErrorMessage = "Invalid number of balls, numBalls must be between 0 and 2.";
+            assertEquals(expectedErrorMessage, e.getMessage());
+        }
+    }
+
+    @Test
     void testUpdateBallCount_withCount0StateLoadingLowerTransitioned_expect1() {
         BallPathState currentState = BallPathState.Loading;
         int currentNumBalls = 0;
@@ -54,6 +83,7 @@ public class UpdateBallCountTests {
         assertEquals(expectedNumBalls, _ballPath.updateBallCount(currentState, currentNumBalls));
         verifyMocks();
     }
+
     @Test
     void testUpdateBallCount_withCount1StateLoadingLowerTransitioned_expect2() {
         BallPathState currentState = BallPathState.Loading;
