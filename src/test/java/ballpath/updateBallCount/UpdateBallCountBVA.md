@@ -31,5 +31,5 @@
 | X                      | Loading      | 1          | false                                 | -                                       | 1             | -               |
 | X                      | Shooting     | 2          | -                                     | true                                    | 1             | -               |
 | X                      | Shooting     | 1          | -                                     | true                                    | 0             | -               |
-|                        | Shooting     | 2          | -                                     | false                                   | 2             | -               |
+| X                      | Shooting     | 2          | -                                     | false                                   | 2             | -               |
 |                        | Shooting     | 1          | -                                     | false                                   | 1             | -               |
