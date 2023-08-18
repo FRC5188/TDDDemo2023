@@ -157,4 +157,21 @@ public class UpdateBallCountTests {
         assertEquals(expectedNumBalls, _ballPath.updateBallCount(currentState, currentNumBalls));
         verifyMocks();
     }
+
+    @Test
+    void testUpdateBallCount_withCount1StateStopped_expect1() {
+        BallPathState currentState = BallPathState.Stopped;
+        int currentNumBalls = 1;
+        EasyMock.expect(_ballPath.shooterLightSensorTransitioned()).andReturn(false);
+        EasyMock.expect(_ballPath.lowerLightSensorTransitioned()).andReturn(false);
+
+        int expectedNumBalls = 1;
+
+        replayMocks();
+
+        assertEquals(expectedNumBalls, _ballPath.updateBallCount(currentState, currentNumBalls));
+        verifyMocks();
+    }
+
+    
 }

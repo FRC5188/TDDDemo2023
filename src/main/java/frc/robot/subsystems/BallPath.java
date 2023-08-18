@@ -70,6 +70,9 @@ public class BallPath extends SubsystemBase {
     }
 
     public int updateBallCount(BallPathState currentState, int numBalls) {
+        if (numBalls > 2 || numBalls < 0) {
+            throw new IllegalArgumentException("Ball count must be between 0 and 2");
+        }
         if (lowerLightSensorTransitioned()) {
             numBalls++;
             return numBalls;
