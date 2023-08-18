@@ -26,7 +26,7 @@
 |                        | -            | 3          | -                                     | -                                       | -             | IllegalArgument |
 |                        | Stopped      | 1          | -                                     | -                                       | 1             | -               |
 | X                      | Loading      | 0          | true                                  | -                                       | 1             | -               |
-|                        | Loading      | 1          | true                                  | -                                       | 2             | -               |
+| X                      | Loading      | 1          | true                                  | -                                       | 2             | -               |
 |                        | Loading      | 0          | false                                 | -                                       | 0             | -               |
 |                        | Loading      | 1          | false                                 | -                                       | 1             | -               |
 |                        | Shooting     | 2          | -                                     | true                                    | 1             | -               |

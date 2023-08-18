@@ -73,9 +73,10 @@ public class BallPath extends SubsystemBase {
         if (lowerLightSensorTransitioned()) {
             numBalls++;
             return numBalls;
+        } else {
+            return numBalls;
         }
 
-        return 0;
     }
 
     public boolean lowerLightSensorTransitioned() {
