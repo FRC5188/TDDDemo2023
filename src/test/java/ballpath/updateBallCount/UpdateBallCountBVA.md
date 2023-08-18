@@ -27,8 +27,8 @@
 |                        | Stopped      | 1          | -                                     | -                                       | 1             | -               |
 | X                      | Loading      | 0          | true                                  | -                                       | 1             | -               |
 | X                      | Loading      | 1          | true                                  | -                                       | 2             | -               |
-|                        | Loading      | 0          | false                                 | -                                       | 0             | -               |
-|                        | Loading      | 1          | false                                 | -                                       | 1             | -               |
+| X                      | Loading      | 0          | false                                 | -                                       | 0             | -               |
+| X                      | Loading      | 1          | false                                 | -                                       | 1             | -               |
 |                        | Shooting     | 2          | -                                     | true                                    | 1             | -               |
 |                        | Shooting     | 1          | -                                     | true                                    | 0             | -               |
 |                        | Shooting     | 2          | -                                     | false                                   | 2             | -               |
