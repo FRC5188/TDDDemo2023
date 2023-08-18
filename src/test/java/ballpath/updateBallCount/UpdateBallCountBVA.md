@@ -22,14 +22,14 @@
 
 | Done:heavy_check_mark: | CurrentState | NumOfBalls | LowerLightSensorTransitioned:pencil2: | ShooterLightSensorTransitioned:pencil2: | *NewNumBalls* | *Exception*     |
 | ------------------------ | :------------- | ------------ | --------------------------------------- | ----------------------------------------- | --------------- | :---------------- |
-|                        | -            | -1         | -                                     | -                                       | -             | IllegalArgument |
-|                        | -            | 3          | -                                     | -                                       | -             | IllegalArgument |
-|                        | Stopped      | 1          | -                                     | -                                       | 1             | -               |
+| X                      | -            | -1         | -                                     | -                                       | -             | IllegalArgument |
+| X                      | -            | 3          | -                                     | -                                       | -             | IllegalArgument |
+| X                      | Stopped      | 1          | -                                     | -                                       | 1             | -               |
 | X                      | Loading      | 0          | true                                  | -                                       | 1             | -               |
-|                        | Loading      | 1          | true                                  | -                                       | 2             | -               |
-|                        | Loading      | 0          | false                                 | -                                       | 0             | -               |
-|                        | Loading      | 1          | false                                 | -                                       | 1             | -               |
-|                        | Shooting     | 2          | -                                     | true                                    | 1             | -               |
-|                        | Shooting     | 1          | -                                     | true                                    | 0             | -               |
-|                        | Shooting     | 2          | -                                     | false                                   | 2             | -               |
-|                        | Shooting     | 1          | -                                     | false                                   | 1             | -               |
+| X                      | Loading      | 1          | true                                  | -                                       | 2             | -               |
+| X                      | Loading      | 0          | false                                 | -                                       | 0             | -               |
+| X                      | Loading      | 1          | false                                 | -                                       | 1             | -               |
+| X                      | Shooting     | 2          | -                                     | true                                    | 1             | -               |
+| X                      | Shooting     | 1          | -                                     | true                                    | 0             | -               |
+| X                      | Shooting     | 2          | -                                     | false                                   | 2             | -               |
+| X                      | Shooting     | 1          | -                                     | false                                   | 1             | -               |
