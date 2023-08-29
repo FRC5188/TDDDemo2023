@@ -155,8 +155,6 @@ public class UpdateBallCountTests {
         verifyMocks();
 
     }
-
-    
     @Test
     void testUpdateBallCount_withCount2StateShootingShooterNotTransitioned_expect2() {
         BallPathState currentState = BallPathState.Shooting;
@@ -164,12 +162,10 @@ public class UpdateBallCountTests {
         EasyMock.expect(_ballPath.shooterLightSensorTransitioned()).andReturn(false);
     
         int expectedNumBalls = 2;
-
         replayMocks();
 
         assertEquals(expectedNumBalls, _ballPath.updateBallCount(currentState, currentNumBalls));
         verifyMocks();
-
     }
 
     @Test
