@@ -160,7 +160,7 @@ public class UpdateBallCountTests {
         BallPathState currentState = BallPathState.Shooting;
         int currentNumBalls = 2;
         EasyMock.expect(_ballPath.shooterLightSensorTransitioned()).andReturn(false);
-    
+
         int expectedNumBalls = 2;
         replayMocks();
 
@@ -173,7 +173,7 @@ public class UpdateBallCountTests {
         BallPathState currentState = BallPathState.Shooting;
         int currentNumBalls = 1;
         EasyMock.expect(_ballPath.shooterLightSensorTransitioned()).andReturn(false);
-    
+
         int expectedNumBalls = 1;
 
         replayMocks();
