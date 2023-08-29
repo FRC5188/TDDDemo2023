@@ -70,23 +70,23 @@ public class BallPath extends SubsystemBase {
     }
 
     public int updateBallCount(BallPathState currentState, int numBalls) {
-        if(numBalls > 2 || numBalls < 0) {
+        if (numBalls > 2 || numBalls < 0) {
             throw new IllegalArgumentException();
         }
         
-        if(currentState == BallPathState.Stopped) {
+        if (currentState == BallPathState.Stopped) {
             return numBalls;
         }
-        if(currentState == BallPathState.Loading) {
+        if (currentState == BallPathState.Loading) {
             if(lowerLightSensorTransitioned()) {
                 return numBalls + 1;
             }
         }
-       if(currentState == BallPathState.Shooting) {
+        if (currentState == BallPathState.Shooting) {
             if(shooterLightSensorTransitioned()) {
                 return numBalls - 1;
-            }   
-       }
+            }
+        }
         return numBalls;
     }
 
