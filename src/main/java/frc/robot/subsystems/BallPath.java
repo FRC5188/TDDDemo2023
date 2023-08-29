@@ -73,17 +73,16 @@ public class BallPath extends SubsystemBase {
         if (numBalls > 2 || numBalls < 0) {
             throw new IllegalArgumentException();
         }
-        
         if (currentState == BallPathState.Stopped) {
             return numBalls;
         }
         if (currentState == BallPathState.Loading) {
-            if(lowerLightSensorTransitioned()) {
+            if (lowerLightSensorTransitioned()) {
                 return numBalls + 1;
             }
         }
         if (currentState == BallPathState.Shooting) {
-            if(shooterLightSensorTransitioned()) {
+            if (shooterLightSensorTransitioned()) {
                 return numBalls - 1;
             }
         }
